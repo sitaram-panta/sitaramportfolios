@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sitaram Panta | .NET Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 188, 212, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      box-shadow: 0 4px 30px rgba(0, 188, 212, 0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #00bcd4;
+      /* Accent color */
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .logo span {
+      color: #333;
+      font-weight: 600;
+      margin-left: 5px;
+      font-size: 1.1rem;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      color: #0097a7;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #b0b0b0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #00bcd4;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00e5ff;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle,
+          rgba(0, 188, 212, 0.15),
+          transparent);
+      top: 20%;
+      right: 10%;
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+      }
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+      z-index: 1;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+      animation: fadeInLeft 1s ease;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .pic-div {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-image: url("./assets/images/viber_image_2025-11-04_13-17-43-013.jpg");
+      background-position: top;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      border: 4px solid #00bcd4;
+      box-shadow: 0 0 50px rgba(0, 188, 212, 0.3);
+      animation: fadeInRight 1s ease;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero-text h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .hero-text span {
+      background: linear-gradient(135deg, #00bcd4, #00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .typing-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: #00bcd4;
+      margin-left: 4px;
+      animation: blink 0.7s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+
+      0%,
+      50% {
+        opacity: 1;
+      }
+
+      51%,
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #b0b0b0;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #00bcd4, #00a0b0);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(0, 188, 212, 0.5);
+    }
+
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      background: linear-gradient(135deg, #00bcd4, #00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #about p {
+      font-size: 1.1rem;
+      color: #b0b0b0;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      text-align: center;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 188, 212, 0.1);
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card.visible {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(0, 188, 212, 0.5);
+      box-shadow: 0 10px 40px rgba(0, 188, 212, 0.2);
+    }
+
+    .card h3 {
+      color: #00e5ff;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      color: #b0b0b0;
+      margin-bottom: 1.5rem;
+    }
+
+    .card a {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .card a:hover {
+      color: #00e5ff;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      margin-top: 2rem;
+      padding-left: 0;
+    }
+
+    .contact-message {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #b0b0b0;
+      text-align: center;
+    }
+
+    .contact-message .highlight {
+      background: linear-gradient(90deg, #ff6ec4, #7873f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+
+    .contact-list li {
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .contact-list i {
+      color: #00bcd4;
+      min-width: 20px;
+      font-size: 1.2rem;
+    }
+
+    .contact-list a {
+      color: #00bcd4;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-list a:hover {
+      color: #00e5ff;
+    }
+
+    .contact-list p {
+      text-align: center;
+      color: #b0b0b0;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      /* slightly smaller cards */
+      gap: 1.2rem;
+      /* space between cards */
+      margin-top: 2rem;
+      justify-items: center;
+      /* center cards inside grid */
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      justify-items: center;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(0, 188, 212, 0.15);
+      border-radius: 16px;
+      padding: 1.2rem;
+      width: 160px;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #e0e0e0;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 188, 212, 0.05);
+    }
+
+    .skill-card img.skill-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      margin-bottom: 0.8rem;
+      filter: drop-shadow(0 0 8px rgba(0, 188, 212, 0.3));
+    }
+
+    .skill-card:hover {
+      background: rgba(0, 188, 212, 0.1);
+      transform: translateY(-6px) scale(1.03);
+      border-color: rgba(0, 188, 212, 0.5);
+      box-shadow: 0 8px 20px rgba(0, 188, 212, 0.25);
+    }
+
+    @media (max-width: 768px) {
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+
+      .skill-card {
+        width: 140px;
+        height: 110px;
+      }
+
+      .skill-card img.skill-logo {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+
+
+    footer {
+      background: rgba(10, 10, 10, 0.95);
+      padding: 2rem;
+      text-align: center;
+      color: #666;
+      border-top: 1px solid rgba(0, 188, 212, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero-text h2 {
+        font-size: 2rem;
+      }
+
+      .hero-text p {
+        margin: 0 auto 2rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+      }
+
+      section h2 {
+        font-size: 2rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header .container {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .hero-text h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .pic-div {
+        width: 220px;
+        height: 220px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header">
+    <div class="container">
+      <div class="logo" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+        SP<span> | Sitaram</span>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2>
+          Hello, I'm <span id="typedName"></span><span class="typing-cursor"></span> 👋
+        </h2>
+        <p>
+          .NET Developer with 3+ years of experience building Web APIs, MVC
+          apps, and enterprise solutions using Clean Architecture.
+        </p>
+        <a href="assets/images/sitaram-panta-cv.pdf" target="_blank" download="Sitaram_Panta_CV.pdf" class="btn">View My
+          CV</a>
+      </div>
+      <div class="pic-div"></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a passionate and detail-oriented
+      <strong>.NET Developer</strong> specializing in
+      <strong>ASP.NET Core, C#, and SQL Server</strong>. I enjoy crafting
+      clean, maintainable APIs, optimizing database performance, and building
+      scalable backend systems that drive real business value.
+    </p>
+    <p>
+      Over the past few years, I've been developing
+      <strong>enterprise-grade inventory and fixed asset management
+        platforms</strong>
+      as well as a <strong>digital procurement system</strong>
+      for banks — enabling vendor participation, tender evaluation, and
+      performance-based vendor ratings.
+    </p>
+    <p>
+      I thrive on solving complex problems, continuously improving my skills,
+      and contributing to projects that make processes more efficient and
+      transparent.
+    </p>
+  </section>
+
+
+
+  <section id="experience">
+    <h2>Professional Experience</h2>
+    <div class="projects-grid">
+      <div class="card">
+        <h3>Software Developer | Ants Pvt.Ltd</h3>
+        <p>May 2022 - Sep 2024</p>
+        <p>
+          Started as an intern and was offered a position as a Junior .NET
+          Core Developer after 3 months. Developed enterprise web applications
+          using ASP.NET MVC and .NET Core, worked on APIs, database
+          optimization, and enterprise systems.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Umbrella Solutions Pvt.Ltd</h3>
+        <p>Aug 2024 - present</p>
+        <p>
+          Currently working at Umbrella Solutions Pvt. Ltd. as a .NET
+          Developer. Added features, Improved and optimized Inventory and
+          Fixed Asset modules, fixed system bugs, and developed Digital
+          Procurement APIs for vendor participation and tender management.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="card">
+        <h3>Inventory Management System</h3>
+        <p>
+          A full-featured enterprise application built with ASP.NET MVC and
+          SQL Server, leveraging Clean Architecture for maintainability and
+          scalability. Handles asset management, depreciation, and
+          inter-branch operations.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Digital Procurement System</h3>
+        <p>
+          RESTful API for banks covering the entire procurement lifecycle —
+          from tender creation, bidding, evaluation and vendor participation
+          (enlisted vendors or new) to evaluation, award, and vendor rating.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Employee Management System</h3>
+        <p>
+          A comprehensive system to manage employee data, including staff
+          records, positions, and intern tracking. It enables daily work
+          reporting, attendance management, and role-based access for HR and
+          management teams.
+        </p>
+        <a href="https://github.com/sitaram-panta/Code_MVC_EMS" target="_blank">
+          View on GitHub →
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Loan Recovery Module</h3>
+        <p>
+          Handles loan bidding, deposit collection, and recovery tracking with
+          automated follow-ups for unpaid loans and reporting for finance
+          teams plus auction or deposit collection for unpaid Loans.
+        </p>
+        <a href="https://github.com/sitaram-panta/Code_MVC_EMS" target="_blank">
+          View on GitHub →
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>QA Test Module</h3>
+        <p>
+          A .NET 7 RESTful API designed for QA teams to efficiently create,
+          manage, and track test cases and test results. It streamlines test
+          workflows, supports detailed reporting, and ensures high-quality
+          software delivery by providing a centralized platform for QA
+          activities.
+        </p>
+        <a href="https://github.com/sitaram-panta/Code_Api_QATestModule" target="_blank">
+          View on GitHub →
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>NEA Branch Audit & Tracking System</h3>
+        <p>
+          A comprehensive software solution designed to monitor and track
+          branch operations across the NEA chain. It ensures that all branch
+          activities are running smoothly, supports audit tracking, and
+          provides management with real-time visibility into operational
+          efficiency and compliance. This system helps maintain consistency,
+          accountability, and smooth workflow across all branches.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><img src="assets/images/html5-logo-png_seeklogo-206834.png" alt="HTML"
+          class="skill-logo" /> HTML</div>
+      <div class="skill-card"><img src="assets/images/images (3).png" alt="CSS3" class="skill-logo" /> CSS3</div>
+      <div class="skill-card"><img src="assets/images/images (4).png" alt="JavaScript" class="skill-logo" /> JavaScript
+      </div>
+      <div class="skill-card"><img src="assets/images/0_8jkgnNmQhLCKGqWZ.png" alt="ASP.NET Core" class="skill-logo" />
+        ASP.NET
+        Core / MVC</div>
+      <div class="skill-card"><img src="assets/images/images.png" alt="SQL Server" class="skill-logo" /> SQL
+        Server</div>
+      <div class="skill-card"><img src="assets/images/1_dyEEkN3GHQeg7sA6v22EHw.png" alt="Clean Architecture"
+          class="skill-logo" /> Clean Architecture</div>
+      <div class="skill-card"><img src="assets/images/GitHub.png" alt="RESTful APIs" class="skill-logo" />
+        RESTful APIs</div>
+      <div class="skill-card"><img src="assets/images/images (2).png" alt="C#" class="skill-logo" /> C#</div>
+      <div class="skill-card"><img src="assets/images/dapper-people-for-logo-design-editable-vector-30539493.avif"
+          alt="Dapper / EF" class="skill-logo" /> Dapper</div>
+      <div class="skill-card"><img src="assets/images/app-115003783285.png" alt="IIS / Hosting" class="skill-logo" />
+        IIS /
+        Hosting</div>
+      <div class="skill-card"><img src="assets/images/postman-icon.svg" alt="Postman" class="skill-logo" /> Postman
+      </div>
+      <div class="skill-card"><img src="assets/images/swagger-logo-png_seeklogo-338589.png" alt="Swagger"
+          class="skill-logo" /> Swagger
+      </div>
+      <div class="skill-card"><img src="assets/images/0_8jkgnNmQhLCKGqWZ.png" alt="EFCore" class="skill-logo" /> EFCore
+      </div>
+      <div class="skill-card"><img src="assets/images/GitHub.png" alt="github" class="skill-logo" /> Github
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <ul class="contact-list">
+      <li>
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:sitarampanta100@gmail.com">sitarampanta100@gmail.com</a>
+      </li>
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/sitaram-panta" target="_blank">github.com/sitaram-panta</a>
+      </li>
+      <li>
+        <i class="fab fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/sitaram-panta-b26a08266/" target="_blank">linkedin.com/in/sitaram-panta</a>
+      </li>
+      <li>
+        <i class="fas fa-phone"></i>
+        <a href="tel:+9779843650775">+977 9843650775</a>
+      </li>
+      <li>
+        <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/9779843650775" target="_blank">Chat on WhatsApp</a>
+      </li>
+      <li>
+        <p class="contact-message">
+          Let's <span class="highlight">collaborate</span>, discuss
+          <span class="highlight">projects</span>, or talk about
+          <span class="highlight">tech innovations</span>!❤️
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>❤️ Created and designed by Sitaram Panta❤️</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Header scroll effect
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Intersection Observer for cards
+      const cards = document.querySelectorAll(".card");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add("visible");
+              }, index * 150);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      cards.forEach((card) => observer.observe(card));
+
+      // Smooth scroll for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Typing effect for name
+      const nameElement = document.getElementById("typedName");
+      const nameText = "Sitaram";
+      let charIndex = 0;
+      let isDeleting = false;
+      let typingSpeed = 150;
+
+      function typeEffect() {
+        if (!isDeleting && charIndex < nameText.length) {
+          nameElement.textContent += nameText.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeEffect, typingSpeed);
+        } else if (!isDeleting && charIndex === nameText.length) {
+          setTimeout(() => {
+            isDeleting = true;
+            typeEffect();
+          }, 2000);
+        } else if (isDeleting && charIndex > 0) {
+          nameElement.textContent = nameText.substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(typeEffect, 100);
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          setTimeout(typeEffect, 500);
+        }
+      }
+
+      typeEffect();
+    });
+  </script>
+</body>
+
+</html>
