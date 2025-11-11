@@ -781,13 +781,24 @@
         }
       });
 
+      // CV Link - Force open in new tab with proper headers
+      const cvLink = document.getElementById('cvLink');
+      cvLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        const pdfPath = 'assets/images/sitaram-panta-cv.pdf';
 
-      // Check if we're on production (Vercel) or local
-      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1' && !window.location.protocol.startsWith('file')) {
-        const cvLink = document.getElementById('cvLink');
-        const currentUrl = window.location.origin; // Automatically gets current domain
-        cvLink.href = `https://docs.google.com/viewer?url=${currentUrl}/assets/images/sitaram-panta-cv.pdf&embedded=true`;
-      }
+        // Fetch the PDF and open in new window
+        fetch(pdfPath)
+          .then(response => response.blob())
+          .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            window.open(url, '_blank');
+          })
+          .catch(err => {
+            // Fallback: just open normally
+            window.open(pdfPath, '_blank');
+          });
+      });
       // Intersection Observer for cards
       const cards = document.querySelectorAll(".card");
       const observer = new IntersectionObserver(
