@@ -565,7 +565,7 @@
           .NET Developer with 3+ years of experience building Web APIs, MVC
           apps, and enterprise solutions using Clean Architecture.
         </p>
-        <a href="assets/images/sitaram-panta-cv.pdf" target="_blank" class="btn" id="cvLink">View My CV</a>
+        <a href="assets/images/sitaram-panta-cv.pdf#view=FitH" target="_blank" class="btn">View My CV</a>
       </div>
       <div class="pic-div"></div>
     </div>
@@ -781,24 +781,7 @@
         }
       });
 
-      // CV Link - Force open in new tab with proper headers
-      const cvLink = document.getElementById('cvLink');
-      cvLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        const pdfPath = 'assets/images/sitaram-panta-cv.pdf';
 
-        // Fetch the PDF and open in new window
-        fetch(pdfPath)
-          .then(response => response.blob())
-          .then(blob => {
-            const url = window.URL.createObjectURL(blob);
-            window.open(url, '_blank');
-          })
-          .catch(err => {
-            // Fallback: just open normally
-            window.open(pdfPath, '_blank');
-          });
-      });
       // Intersection Observer for cards
       const cards = document.querySelectorAll(".card");
       const observer = new IntersectionObserver(
