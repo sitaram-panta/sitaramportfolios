@@ -1,0 +1,17 @@
+{
+  "headers": [
+    {
+      "source": "/assets/images/*.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"sitaram-panta-cv.pdf\""
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        }
+      ]
+    }
+  ]
+}
