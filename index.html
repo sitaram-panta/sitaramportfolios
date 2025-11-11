@@ -785,8 +785,8 @@
       // Check if we're on production (Vercel) or local
       if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1' && !window.location.protocol.startsWith('file')) {
         const cvLink = document.getElementById('cvLink');
-        const productionUrl = 'https://sitaramportfolios-bj2ap80z9-sitaram-pantas-projects.vercel.app';
-        cvLink.href = `https://docs.google.com/viewer?url=${productionUrl}/assets/images/sitaram-panta-cv.pdf&embedded=true`;
+        const currentUrl = window.location.origin; // Automatically gets current domain
+        cvLink.href = `https://docs.google.com/viewer?url=${currentUrl}/assets/images/sitaram-panta-cv.pdf&embedded=true`;
       }
       // Intersection Observer for cards
       const cards = document.querySelectorAll(".card");
