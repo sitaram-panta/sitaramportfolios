@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/assets/images/*.pdf",
+      "source": "/assets/images/sitaram-panta-cv.pdf",
       "headers": [
         {
           "key": "Content-Disposition",
