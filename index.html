@@ -565,7 +565,16 @@
           .NET Developer with 3+ years of experience building Web APIs, MVC
           apps, and enterprise solutions using Clean Architecture.
         </p>
-        <a href="assets/images/sitaram-panta-cv.pdf#view=FitH" target="_blank" class="btn">View My CV</a>
+    
+        <a href="javascript:void(0);" class="btn" onclick="openPDF()">View My CV</a>
+
+        <script>
+          function openPDF() {
+            window.open("assets/images/sitaram-panta-cv.pdf", "_blank");
+          }
+        </script>
+
+
       </div>
       <div class="pic-div"></div>
     </div>
@@ -780,6 +789,9 @@
           header.classList.remove("scrolled");
         }
       });
+      function openPDF() {
+        window.open("assets/images/sitaram-panta-cv.pdf", "_blank");
+      }
 
 
       // Intersection Observer for cards
